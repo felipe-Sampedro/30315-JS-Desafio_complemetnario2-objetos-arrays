@@ -51,16 +51,6 @@ function PK(numeradorPK , denominadorPK){
 	return PK.toFixed(0)
 }
 
-let prueba = numPK(1)
-console.log(numPK(1))
-
-let prueba2 = denPK(1)
-console.log(denPK(1))
-
-console.log(anualidadPK())
-
-let total = PK(numPK(1),denPK(1))
-console.log(total)
 
 
 //funciones para cada uno de los periodos "k-1" del credito segun el plazo dado en meses
@@ -91,19 +81,6 @@ function PK_1(numeradorPK_1 , denominadorPK_1){
 }
 
 
-let prueba_1 = numPK_1(1)
-console.log(numPK_1(1))
-
-let prueba2_1 = denPK_1(1)
-console.log(denPK_1(1))
-
-console.log(anualidadPK_1())
-
-let total_1 = PK_1(numPK_1(1),denPK_1(1))
-console.log(total_1)
-
-
-
 // Funcion constructora de objetos con cada uno de los parametros calculados para cada mes 
 
 class Cada_Periodo {
@@ -131,6 +108,7 @@ class Cada_Periodo {
 
 }
 
+// Array vacio para utilizar propiedad push y cargarlos con los objetos creados de la funcion cosntructora
 const Plan_pagos=[]
 
 // creacion de objetos con cada uno de los parametros de los 5 primeros meses
@@ -142,36 +120,41 @@ for (let i = 1; i <= 5; i++){
 			resultado1.abono_capital()
 			resultado1.pago_intereses()
 			console.log(resultado1)
+			console.log(`en el mes ${i} se pagaron ${resultado1.abonos} pesos como abono a capital y ${resultado1.cobro} pesos en abono a intereses`)
 			break
 		case 2:
 			Plan_pagos.push(resultado2 = new Cada_Periodo(i,numPK(i).toFixed(2),denPK(i).toFixed(2),PK(numPK(i),denPK(i)),numPK_1(i).toFixed(2),denPK_1(i).toFixed(2),PK_1(numPK_1(i),denPK_1(i)),0,0));
 			resultado2.abono_capital()
 			resultado2.pago_intereses()
 			console.log(resultado2)
+			console.log(`en el mes ${i} se pagaron ${resultado2.abonos} pesos como abono a capital y ${resultado2.cobro} pesos en abono a intereses`)
 			break
 		case 3:
 			Plan_pagos.push(resultado3 = new Cada_Periodo(i,numPK(i).toFixed(2),denPK(i).toFixed(2),PK(numPK(i),denPK(i)),numPK_1(i).toFixed(2),denPK_1(i).toFixed(2),PK_1(numPK_1(i),denPK_1(i)),0,0));
 			resultado3.abono_capital()
 			resultado3.pago_intereses()
 			console.log(resultado3)
+			console.log(`en el mes ${i} se pagaron ${resultado3.abonos} pesos como abono a capital y ${resultado3.cobro} pesos en abono a intereses`)
 			break
 		case 4:
 			Plan_pagos.push(resultado4 = new Cada_Periodo(i,numPK(i).toFixed(2),denPK(i).toFixed(2),PK(numPK(i),denPK(i)),numPK_1(i).toFixed(2),denPK_1(i).toFixed(2),PK_1(numPK_1(i),denPK_1(i)),0,0));
 			resultado4.abono_capital()
 			resultado4.pago_intereses()
 			console.log(resultado4)
+			console.log(`en el mes ${i} se pagaron ${resultado4.abonos} pesos como abono a capital y ${resultado4.cobro} pesos en abono a intereses`)
 			break
 		case 5:
 			Plan_pagos.push(resultado5 = new Cada_Periodo(i,numPK(i).toFixed(2),denPK(i).toFixed(2),PK(numPK(i),denPK(i)),numPK_1(i).toFixed(2),denPK_1(i).toFixed(2),PK_1(numPK_1(i),denPK_1(i)),0,0));
 			resultado5.abono_capital()
 			resultado5.pago_intereses()
 			console.log(resultado5)
+			console.log(`en el mes ${i} se pagaron ${resultado5.abonos} pesos como abono a capital y ${resultado5.cobro} pesos en abono a intereses`)
 			break
 	}
 }
 
+Plan_pagos.join('--')
 console.log(Plan_pagos)
-
 
 
 // funcion principal para calculo de cuota mensual a pagar del credito
